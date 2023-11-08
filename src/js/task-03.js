@@ -12,3 +12,25 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryList = document.querySelector("ul");
+console.log(galleryList);
+
+galleryList.classList.add("js-gallery");
+console.log(galleryList);
+
+galleryList.style.display = "flex";
+galleryList.style.flexDirection = "colum";
+galleryList.style.gap = "50px";
+
+function createMarup(arr){
+  const markup = arr
+  .map(
+    ({url,alt})=>`<li>
+    <img src="${url}" alt="${alt}" width="250" />
+    </li>`
+  )
+  .join("");
+  galleryList.insertAdjacentHTML("afterbegin", markup);
+}
+createMarup(images);
